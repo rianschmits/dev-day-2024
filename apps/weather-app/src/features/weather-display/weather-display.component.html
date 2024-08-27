@@ -1,0 +1,12 @@
+<div class="weather-input-container">
+  <form [formGroup]="weatherForm" (ngSubmit)="fetchWeather()">
+    <input type="text" formControlName="city" placeholder="Enter city name" />
+    <button type="submit">Get Weather</button>
+  </form>
+</div>
+@if (errorMessage) {
+  <div class="error-message">{{ errorMessage }}</div>
+}
+@else {
+  <weather-widget city="{{ city }}" temperature="{{ temperature }}" description=" {{ description }}" icon="{{ icon }}"></weather-widget>
+}
